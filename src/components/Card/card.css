@@ -1,0 +1,11 @@
+.item {
+    width: 30%;
+    height: 120px;
+    display: flex;
+    color: white;
+    padding: 5px 20px;
+    justify-content: center;
+    border-radius: 10px;
+    flex-direction: column;
+    background: rgb(198, 190, 118);
+}

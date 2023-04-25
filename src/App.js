@@ -1,23 +1,22 @@
 import './App.css';
-import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
-import Main from './components/Main/Main';
+import { Routes, Route, BrowserRouter } from "react-router-dom"
+import HomePage from './pages/HomePage/HomePage';
+import AboutPage from './pages/AboutPage/AboutPage';
+import ContactPage from './pages/ContactPage/ContactPage';
 
 // JSX - HTML JS
 
 const App = () => {
 
-  const a = 10
-
-  const b = 10
-
-  const total = b + a
-
   return (
     <>
-      <Header data={data} />
-      <Main a={a} b={b} total={total} />
-      <Footer />
+      <Header />
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/about' element={<AboutPage />} />
+        <Route path='/contact' element={<ContactPage />} />
+      </Routes>
     </>
   );
 }
