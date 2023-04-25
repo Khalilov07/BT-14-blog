@@ -11,7 +11,7 @@ const App = () => {
 
   const b = 10
 
-  const total = a + b
+  const total = b + a
 
   return (
     <>
