@@ -1,23 +1,26 @@
 import React from 'react';
 import './homepage.css'
+import axios from 'axios'
 import Card from '../../components/Card/Card';
+import { useState, useEffect } from 'react';
 
 const HomePage = () => {
 
-    const title1 = "HTML"
-    const duration1 = "2m"
-    const title2 = "css"
-    const duration2 = "2m"
-    const title3 = "js"
-    const duration3 = "2m"
+    const [courses, setCoueses] = useState([])
 
+    useEffect(() => {
+        axios.get("http://localhost:3001/courses")
+            .then(res => setCoueses(res.data))
+    }, [])
+
+    console.log(courses)
+    
     return (
         <div className='item-wrapper'>
-           <Card title={title1} duration={duration1} />
-           <Card title={title2} duration={duration2} />
-           <Card title={title3} duration={duration3} />
+            {courses.map((course) => <Card key={course.id} title={course.title} duration={course.duration} />)}
         </div>
     );
+
 };
 
 export default HomePage;

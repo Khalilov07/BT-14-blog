@@ -1,14 +1,13 @@
 import React from 'react';
 import './card.css'
 
-const Card = (props) => {
+const Card = ({ title, duration }) => {
+
 
     return (
-        <div>
-            <div className='item'>
-                <h2>theme: {props.title}</h2>
-                <p>duration: {props.duration}</p>
-            </div>
+        <div className='item'>
+            <h2>theme: {title}</h2>
+            <p>duration: {duration}</p>
         </div>
     );
 };
