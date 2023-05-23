@@ -3,7 +3,9 @@ import "./createpost.css"
 import axios from 'axios';
 import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
-import { Button } from '@mui/material';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+
 
 const CreatePost = () => {
 
@@ -16,12 +18,17 @@ const CreatePost = () => {
 
     const newCourse = {
       title,
-      duration
+      duration,
+      important : Math.random() > 0.5
+      // 0.2 > 0.5 false
+      // 0.6 > 0.5 true
     }
 
     axios.post("http://localhost:3001/courses", newCourse)
       .then(res => {
         setOpen(true)
+        setTitle("")
+        setDuration(0)
       })
       .catch(err => {
         console.log(err)
@@ -52,30 +59,39 @@ const CreatePost = () => {
   );
 
   return (
-    <div>
+    <div className='form__wrapper'>
       <form onSubmit={handelPost}>
 
-        <input
+        <h1 style={{paddingBottom: "10px"}}>Create Post</h1>
+
+        <TextField
+          id="outlined-basic"
+          label="Name"
+          variant="outlined"
           value={title}
           type="text"
           placeholder='Title'
           onChange={(e) => setTitle(e.target.value)}
         />
 
-        <input
+        <TextField
+          style={{ marginTop: "20px" }}
+          id="outlined-basic"
+          label="Duration"
+          variant="outlined"
           value={duration}
           type="number"
           placeholder='Duration'
           onChange={(e) => setDuration(e.target.value)}
         />
 
-        <button type='submit'>Send</button>
+        <Button style={{marginTop: "20px"}} variant="contained" type='submit'>Contained</Button>
 
       </form>
 
       <Snackbar
         open={open}
-        autoHideDuration={6000}
+        autoHideDuration={3000}
         onClose={handleClose}
         message="Send"
         action={action}

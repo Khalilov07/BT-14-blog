@@ -3,17 +3,26 @@
     {
       "id": 1,
       "title": "HTML",
-      "duration": 2
+      "duration": 2,
+      "important" : true
     },
     {
       "id": 2,
       "title": "CSS",
-      "duration": 2
+      "duration": 2,
+      "important" : true
     },
     {
       "id": 3,
       "title": "JS",
-      "duration": 2
+      "duration": 2,
+      "important" : false
+    },
+    {
+      "title": "dapidwa",
+      "duration": "2",
+      "important": false,
+      "id": 5
     }
   ]
 }

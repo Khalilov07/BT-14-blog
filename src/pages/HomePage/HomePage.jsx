@@ -8,15 +8,24 @@ const HomePage = () => {
 
     const [courses, setCourses] = useState([])
 
+    const [showAll, setShowAll] = useState(true)
+
+    // если showAll true то тогда отображаем все посты, иначе отображаем лишь те посты у которых статус true
+
+    const filterdCourses = showAll ? courses : courses.filter(course => course.important === true)
+
     useEffect(() => {
         axios.get("http://localhost:3001/courses")
             .then(res => setCourses(res.data))
     }, [])
 
     return (
-        <div className='item-wrapper'>
-            {courses.map((course) => <Card key={course.id} title={course.title} duration={course.duration} />)}
-        </div>
+        <>
+            <button onClick={() => setShowAll(!showAll)}>{showAll ? "Покзать важные" : "Показать все"}</button>
+            <div className='item-wrapper'>
+                {filterdCourses.map((course) => <Card key={course.id} title={course.title} duration={course.duration} status={course.important} />)}
+            </div>
+        </>
     );
 
 };
