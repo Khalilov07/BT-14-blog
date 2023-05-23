@@ -1,29 +1,19 @@
 {
-    "courses" : [
-        {
-            "id" : 1,
-            "title" : "HTML",
-            "duration" : 2
-        },
-        {
-            "id" : 2,
-            "title" : "CSS",
-            "duration" : 2
-        },
-        {
-            "id" : 3,
-            "title" : "JS",
-            "duration" : 2
-        },
-        {
-            "id" : 3,
-            "title" : "JS",
-            "duration" : 2
-        },
-        {
-            "id" : 3,
-            "title" : "JS",
-            "duration" : 2
-        }
-    ]
+  "courses": [
+    {
+      "id": 1,
+      "title": "HTML",
+      "duration": 2
+    },
+    {
+      "id": 2,
+      "title": "CSS",
+      "duration": 2
+    },
+    {
+      "id": 3,
+      "title": "JS",
+      "duration": 2
+    }
+  ]
 }
