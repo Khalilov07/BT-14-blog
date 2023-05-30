@@ -5,6 +5,7 @@ import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import postServices from '../../services/services'
 
 
 const CreatePost = () => {
@@ -15,16 +16,15 @@ const CreatePost = () => {
 
   const handelPost = (e) => {
     e.preventDefault()
-
     const newCourse = {
       title,
       duration,
-      important : Math.random() > 0.5
+      important: Math.random() > 0.5
       // 0.2 > 0.5 false
       // 0.6 > 0.5 true
     }
 
-    axios.post("http://localhost:3001/courses", newCourse)
+    postServices.postData(newCourse)
       .then(res => {
         setOpen(true)
         setTitle("")
@@ -62,7 +62,7 @@ const CreatePost = () => {
     <div className='form__wrapper'>
       <form onSubmit={handelPost}>
 
-        <h1 style={{paddingBottom: "10px"}}>Create Post</h1>
+        <h1 style={{ paddingBottom: "10px" }}>Create Post</h1>
 
         <TextField
           id="outlined-basic"
@@ -85,7 +85,7 @@ const CreatePost = () => {
           onChange={(e) => setDuration(e.target.value)}
         />
 
-        <Button style={{marginTop: "20px"}} variant="contained" type='submit'>Contained</Button>
+        <Button style={{ marginTop: "20px" }} variant="contained" type='submit'>Contained</Button>
 
       </form>
 

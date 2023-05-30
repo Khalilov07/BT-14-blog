@@ -3,6 +3,7 @@ import './homepage.css'
 import axios from 'axios'
 import Card from '../../components/Card/Card';
 import { useState } from 'react';
+import postServices from '../../services/services'
 
 const HomePage = () => {
 
@@ -15,15 +16,38 @@ const HomePage = () => {
     const filterdCourses = showAll ? courses : courses.filter(course => course.important === true)
 
     useEffect(() => {
-        axios.get("http://localhost:3001/courses")
+        postServices.getData()
             .then(res => setCourses(res.data))
     }, [])
 
+    const changeImportant = (id) => {
+        const post = courses.find(course => course.id === id) //
+        const newChange = {
+            ...post,
+            important : !post.important
+        }
+        postServices.changeData(newChange, id)
+            .then(res => setCourses(courses.map(course => course.id === res.data.id ? newChange : course)))
+    }
+
+    const deletePost = (id) => {
+        postServices.deletePost(id)
+            .then(res => console.log(res.data))
+    }
+
     return (
         <>
-            <button onClick={() => setShowAll(!showAll)}>{showAll ? "Покзать важные" : "Показать все"}</button>
+            <button onClick={() => setShowAll(!showAll)}>{showAll ? "Show Important" : "Show All"}</button>
             <div className='item-wrapper'>
-                {filterdCourses.map((course) => <Card key={course.id} title={course.title} duration={course.duration} status={course.important} />)}
+                {filterdCourses.map((course) =>
+                    <Card
+                        key={course.id}
+                        title={course.title}
+                        duration={course.duration}
+                        status={course.important}
+                        changeImportant={() => changeImportant(course.id)}
+                        deletePost={() => deletePost(course.id)}
+                    />)}
             </div>
         </>
     );

@@ -4,25 +4,31 @@
       "id": 1,
       "title": "HTML",
       "duration": 2,
-      "important" : true
+      "important": false
     },
     {
       "id": 2,
       "title": "CSS",
       "duration": 2,
-      "important" : true
+      "important": false
     },
     {
       "id": 3,
       "title": "JS",
       "duration": 2,
-      "important" : false
+      "important": false
     },
     {
       "title": "dapidwa",
       "duration": "2",
       "important": false,
       "id": 5
+    },
+    {
+      "title": "dawdawdawdw",
+      "duration": "2",
+      "important": false,
+      "id": 6
     }
   ]
 }
