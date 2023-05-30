@@ -4,12 +4,17 @@ import axios from 'axios'
 import Card from '../../components/Card/Card';
 import { useState } from 'react';
 import postServices from '../../services/services'
+import Button from '@mui/material/Button';
+import { IconButton } from '@mui/material';
+import { Snackbar } from '@mui/material';
 
 const HomePage = () => {
 
     const [courses, setCourses] = useState([])
 
     const [showAll, setShowAll] = useState(true)
+
+    const [open, setOpen] = useState(false);
 
     // если showAll true то тогда отображаем все посты, иначе отображаем лишь те посты у которых статус true
 
@@ -24,7 +29,7 @@ const HomePage = () => {
         const post = courses.find(course => course.id === id) //
         const newChange = {
             ...post,
-            important : !post.important
+            important: !post.important
         }
         postServices.changeData(newChange, id)
             .then(res => setCourses(courses.map(course => course.id === res.data.id ? newChange : course)))
@@ -32,8 +37,34 @@ const HomePage = () => {
 
     const deletePost = (id) => {
         postServices.deletePost(id)
-            .then(res => console.log(res.data))
+            .then(res => {
+                setCourses(courses.filter(course => course.id !== id))
+                setOpen(true)
+            })
     }
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        setOpen(false);
+    };
+
+    const action = (
+        <React.Fragment>
+            <Button color="secondary" size="small" onClick={handleClose}>
+                X
+            </Button>
+            <IconButton
+                size="small"
+                aria-label="close"
+                color="inherit"
+                onClick={handleClose}
+            >
+            </IconButton>
+        </React.Fragment>
+    );
 
     return (
         <>
@@ -49,6 +80,15 @@ const HomePage = () => {
                         deletePost={() => deletePost(course.id)}
                     />)}
             </div>
+
+            <Snackbar
+                open={open}
+                autoHideDuration={3000}
+                onClose={handleClose}
+                message="Deleted"
+                action={action}
+            />
+
         </>
     );
 
