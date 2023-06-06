@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import './homepage.css'
-import axios from 'axios'
 import Card from '../../components/Card/Card';
 import { useState } from 'react';
 import postServices from '../../services/services'

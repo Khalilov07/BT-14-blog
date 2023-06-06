@@ -13,5 +13,11 @@
       "id": 6
     }
   ],
-  "users": []
+  "users": [
+    {
+      "email": "test@mail.ru",
+      "password": "$2a$10$PXLuJjumsibtaziMZQA9a.izcjoAFNPDi4g22Qp/m9BgnQ7p/x.BS",
+      "id": 1
+    }
+  ]
 }
