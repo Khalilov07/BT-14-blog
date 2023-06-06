@@ -68,7 +68,7 @@ const HomePage = () => {
 
     return (
         <>
-            <button onClick={() => setShowAll(!showAll)}>{showAll ? "Show Important" : "Show All"}</button>
+            <Button style={{margin: "20px"}} variant="contained" onClick={() => setShowAll(!showAll)}>{showAll ? "Show Important" : "Show All"}</Button>
             <div className='item-wrapper'>
                 {filterdCourses.map((course) =>
                     <Card

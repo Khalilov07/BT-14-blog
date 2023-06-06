@@ -1,16 +1,17 @@
 {
   "courses": [
     {
-      "title": "JS",
+      "title": "Node JS",
       "duration": "2",
       "important": true,
-      "id": 3
+      "id": 5
     },
     {
-      "title": "dmawpodaw",
-      "duration": 0,
-      "important": true,
-      "id": 4
+      "title": "JS",
+      "duration": "2",
+      "important": false,
+      "id": 6
     }
-  ]
+  ],
+  "users": []
 }
