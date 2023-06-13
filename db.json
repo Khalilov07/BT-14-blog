@@ -18,6 +18,16 @@
       "email": "test@mail.ru",
       "password": "$2a$10$PXLuJjumsibtaziMZQA9a.izcjoAFNPDi4g22Qp/m9BgnQ7p/x.BS",
       "id": 1
+    },
+    {
+      "email": "test1@mail.ru",
+      "password": "$2a$10$eyAIxF9QmOTNpfEGJR7vYO8UIeF50eSUOebYWZCoR/0g23vo1FraO",
+      "id": 2
+    },
+    {
+      "email": "test3@mail.ru",
+      "password": "$2a$10$zlzUtfz56Dm4VGNRKfa8JOX5Be6ImbLZ2dbpP4JSd/i6MEOLx51vW",
+      "id": 3
     }
   ]
 }

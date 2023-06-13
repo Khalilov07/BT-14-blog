@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import postServices from '../../services/services';
+import userSerivces from '../../services/userSerivces';
 import './registerpage.css'
 import { TextField } from '@mui/material';
 import { Button } from '@mui/material';
@@ -8,8 +8,12 @@ const RegisterPage = () => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [message, setMessage] = useState(false)
+
+    message ? alert("Ошибка") : null
 
     const addUser = (e) => {
+
         e.preventDefault()
 
         const newUser = {
@@ -17,14 +21,14 @@ const RegisterPage = () => {
             password
         }
 
-        postServices.addUser(newUser)
+        userSerivces.addUser(newUser)
             .then(res => console.log(res.data))
-
-        console.log(newUser)
+            .catch(err => setMessage(true))
+            
     }
 
     return (
-        <div className='form__wrapper '>
+        <div className='form__wrapper'>
             <form onSubmit={addUser}>
                 <h1 style={{marginBottom: "20px"}}>Register</h1>
                 <TextField

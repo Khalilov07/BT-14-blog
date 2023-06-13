@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import './homepage.css'
 import Card from '../../components/Card/Card';
 import { useState } from 'react';
-import postServices from '../../services/services'
+import postServices from '../../services/postServices'
 import Button from '@mui/material/Button';
 import { IconButton } from '@mui/material';
 import { Snackbar } from '@mui/material';
@@ -18,6 +18,8 @@ const HomePage = () => {
     // если showAll true то тогда отображаем все посты, иначе отображаем лишь те посты у которых статус true
 
     const filterdCourses = showAll ? courses : courses.filter(course => course.important === true)
+
+
 
     useEffect(() => {
         postServices.getData()
@@ -67,6 +69,8 @@ const HomePage = () => {
 
     return (
         <>
+
+
             <Button style={{margin: "20px"}} variant="contained" onClick={() => setShowAll(!showAll)}>{showAll ? "Show Important" : "Show All"}</Button>
             <div className='item-wrapper'>
                 {filterdCourses.map((course) =>

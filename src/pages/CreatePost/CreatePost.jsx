@@ -5,7 +5,7 @@ import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import postServices from '../../services/services'
+import postServices from '../../services/postServices'
 
 
 const CreatePost = () => {
