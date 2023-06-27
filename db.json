@@ -1,16 +1,28 @@
 {
   "courses": [
     {
-      "title": "Node JS",
+      "title": "HTML",
       "duration": "2",
-      "important": true,
-      "id": 5
+      "important": false,
+      "id": 1
+    },
+    {
+      "title": "CSS",
+      "duration": "2",
+      "important": false,
+      "id": 2
     },
     {
       "title": "JS",
       "duration": "2",
-      "important": false,
-      "id": 6
+      "important": true,
+      "id": 3
+    },
+    {
+      "title": "React JS",
+      "duration": "2",
+      "important": true,
+      "id": 4
     }
   ],
   "users": [
@@ -28,6 +40,12 @@
       "email": "test3@mail.ru",
       "password": "$2a$10$zlzUtfz56Dm4VGNRKfa8JOX5Be6ImbLZ2dbpP4JSd/i6MEOLx51vW",
       "id": 3
+    },
+    {
+      "email": "test4@mail.ru",
+      "password": "$2a$10$v0oXKniW2l9uI256/5AsCOG5KxxwcOwOwxTwRRu9t1ETzxNcM9Fpq",
+      "login": "marka",
+      "id": 4
     }
   ]
 }

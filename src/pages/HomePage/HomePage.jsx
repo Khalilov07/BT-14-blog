@@ -76,6 +76,7 @@ const HomePage = () => {
                 {filterdCourses.map((course) =>
                     <Card
                         key={course.id}
+                        id={course.id}
                         title={course.title}
                         duration={course.duration}
                         status={course.important}

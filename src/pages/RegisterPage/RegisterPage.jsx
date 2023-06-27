@@ -8,9 +8,8 @@ const RegisterPage = () => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [message, setMessage] = useState(false)
+    const [login, setLogin] = useState('')
 
-    message ? alert("Ошибка") : null
 
     const addUser = (e) => {
 
@@ -18,13 +17,12 @@ const RegisterPage = () => {
 
         const newUser = {
             email,
-            password
+            password,
+            login
         }
 
         userSerivces.addUser(newUser)
             .then(res => console.log(res.data))
-            .catch(err => setMessage(true))
-            
     }
 
     return (
@@ -48,6 +46,16 @@ const RegisterPage = () => {
                     value={password}
                     type='password'
                     onChange={(e) => setPassword(e.target.value)}
+                />
+                
+                <TextField
+                    id="outlined-basic"
+                    label="Login"
+                    variant="outlined"
+                    style={{marginBottom: 20}}
+                    value={login}
+                    type='text'
+                    onChange={(e) => setLogin(e.target.value)}
                 />
 
                 <Button variant="outlined" type='submit'>Send</Button>

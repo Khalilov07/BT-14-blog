@@ -7,6 +7,7 @@ const LoginPage = () => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [myUser, setMyUser] = useState("")
 
     const authUser = (e) => {
 
@@ -18,13 +19,16 @@ const LoginPage = () => {
         }
 
         userSerivces.authUser(user)
-            .then(res => console.log(res.data))
+            .then(res => {
+                setMyUser(res.data.user)
+            })
 
     }
 
+
     return (
         <>
-            <h2>Login: </h2>
+        <h2>login: {myUser.login}</h2>
             <div className='form__wrapper'>
                 <form onSubmit={authUser}>
                     <h1 style={{ marginBottom: "20px" }}>Login</h1>

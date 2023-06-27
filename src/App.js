@@ -7,6 +7,7 @@ import ContactPage from './pages/ContactPage/ContactPage';
 import CreatePost from './pages/CreatePost/CreatePost';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import LoginPage from './pages/LoginPage/LoginPage';
+import SingleCoursePage from './pages/SingleCoursePage/SingleCoursePage';
 
 // JSX - HTML JS
 
@@ -22,6 +23,7 @@ const App = () => {
         <Route path='/create' element={<CreatePost />} />
         <Route path='/register' element={<RegisterPage />} />
         <Route path='/login' element={<LoginPage />} />
+        <Route path='/course/:id' element={<SingleCoursePage />} />
       </Routes>
     </>
   );
