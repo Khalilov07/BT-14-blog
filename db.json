@@ -1,26 +1,8 @@
 {
   "courses": [
     {
-      "title": "HTML",
-      "duration": "2",
-      "important": false,
-      "id": 1
-    },
-    {
-      "title": "CSS",
-      "duration": "2",
-      "important": false,
-      "id": 2
-    },
-    {
-      "title": "JS",
-      "duration": "2",
-      "important": true,
-      "id": 3
-    },
-    {
-      "title": "React JS",
-      "duration": "2",
+      "title": "",
+      "duration": 0,
       "important": true,
       "id": 4
     }

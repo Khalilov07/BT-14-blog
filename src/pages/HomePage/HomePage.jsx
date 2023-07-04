@@ -19,30 +19,10 @@ const HomePage = () => {
 
     const filterdCourses = showAll ? courses : courses.filter(course => course.important === true)
 
-
-
     useEffect(() => {
         postServices.getData()
             .then(res => setCourses(res.data))
     }, [])
-
-    const changeImportant = (id) => {
-        const post = courses.find(course => course.id === id) //
-        const newChange = {
-            ...post,
-            important: !post.important
-        }
-        postServices.changeData(newChange, id)
-            .then(res => setCourses(courses.map(course => course.id === res.data.id ? newChange : course)))
-    }
-
-    const deletePost = (id) => {
-        postServices.deletePost(id)
-            .then(res => {
-                setCourses(courses.filter(course => course.id !== id))
-                setOpen(true)
-            })
-    }
 
     const handleClose = (event, reason) => {
         if (reason === 'clickaway') {
@@ -69,9 +49,7 @@ const HomePage = () => {
 
     return (
         <>
-
-
-            <Button style={{margin: "20px"}} variant="contained" onClick={() => setShowAll(!showAll)}>{showAll ? "Show Important" : "Show All"}</Button>
+            <Button style={{ margin: "20px" }} variant="contained" onClick={() => setShowAll(!showAll)}>{showAll ? "Show Important" : "Show All"}</Button>
             <div className='item-wrapper'>
                 {filterdCourses.map((course) =>
                     <Card
@@ -80,8 +58,6 @@ const HomePage = () => {
                         title={course.title}
                         duration={course.duration}
                         status={course.important}
-                        changeImportant={() => changeImportant(course.id)}
-                        deletePost={() => deletePost(course.id)}
                     />)}
             </div>
 
